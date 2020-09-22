@@ -21,20 +21,19 @@ function App() {
     <UserContext.Provider value = {[loggedInUSer, setLoggedInUser]}>
       <div className= 'App'>
       <Router>
-          
+      <Header />
           <Switch>
             <Route path="/home">
-            <Header />
+            
               <Home />
             </Route>
             <Route path="/login">
               <Login />
             </Route>
-            <PrivateRoute path="/book/:bedType">
+            <PrivateRoute path="/book/:id">
               <Booking />
             </PrivateRoute>
             <Route exact path="/">
-            <Header />
               <Home />
             </Route>
           </Switch>

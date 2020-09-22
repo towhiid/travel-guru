@@ -1,13 +1,12 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Button, Form, FormControl, Nav } from 'react-bootstrap';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
-import { UserContext } from '../../App';
 import './Header.css';
 
 
 const Header = () => {
-  const [loggedInUSer, setLoggedInUser] = useContext(UserContext);
+  
     return (
         <>
         <Navbar bg="transparent" variant="ltransparent">
@@ -15,12 +14,12 @@ const Header = () => {
     <Form inline className = "p-5">
       <FormControl className = 'search' type="text" placeholder="Search"/>
     </Form>
-    <Nav className="ml-auto" style= {{color: "#ffffff"}}>
+    <Nav className="ml-auto">
       <Link className = "p-5" to = "/home">Home</Link>
       <Link className = "p-5" href="#">News</Link>
       <Link className = "p-5" href="#">Destination</Link>
       <Link className = "p-5" href="#">Blog</Link>
-      <Link className = "p-5" to = "/login"><Button>Login</Button></Link>
+      <Link className = "p-5" to = "/login"><Button className = "btn btn-warning">Login</Button></Link>
     </Nav>
     
   </Navbar></>

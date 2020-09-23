@@ -2,8 +2,7 @@ import React, { createContext, useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -12,6 +11,8 @@ import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Booking from './components/Booking/Booking';
+import Hotels from './components/Hotel/Hotels';
+import NotFound from './components/NotFound/NotFound';
 
 export const UserContext = createContext();
 
@@ -24,17 +25,22 @@ function App() {
       <Header />
           <Switch>
             <Route path="/home">
-            
-              <Home />
+            <Home />
             </Route>
+            <Route path="/booking/:id">
+            <Booking />
+            </Route>
+            <PrivateRoute exact path="/hotels/:name">
+              <Hotels />
+            </PrivateRoute>
             <Route path="/login">
               <Login />
             </Route>
-            <PrivateRoute path="/book/:id">
-              <Booking />
-            </PrivateRoute>
             <Route exact path="/">
               <Home />
+            </Route>
+            <Route path = "*">
+              <NotFound />
             </Route>
           </Switch>
       </Router>

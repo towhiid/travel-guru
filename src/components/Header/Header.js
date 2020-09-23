@@ -15,10 +15,10 @@ const Header = () => {
       <FormControl className = 'search' type="text" placeholder="Search"/>
     </Form>
     <Nav className="ml-auto">
-      <Link className = "p-5" to = "/home">Home</Link>
-      <Link className = "p-5" href="#">News</Link>
-      <Link className = "p-5" href="#">Destination</Link>
-      <Link className = "p-5" href="#">Blog</Link>
+      <Link style = {{color: '#ffffff'}} className = "p-5" to = "/home">Home</Link>
+      <Link style = {{color: '#ffffff'}} className = "p-5" href="#">News</Link>
+      <Link style = {{color: '#ffffff'}} className = "p-5" href="#">Destination</Link>
+      <Link style = {{color: '#ffffff'}} className = "p-5" href="#">Blog</Link>
       <Link className = "p-5" to = "/login"><Button className = "btn btn-warning">Login</Button></Link>
     </Nav>
     

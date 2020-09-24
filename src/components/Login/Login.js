@@ -7,6 +7,7 @@ import { Container, Row } from 'react-bootstrap';
 import googleImg from '../Images/Icon/google.png';
 import fbImg from '../Images/Icon/fb.png';
 import { UserContext } from '../../App';
+import { useHistory, useLocation } from 'react-router-dom';
 
 firebase.initializeApp(firebaseConfig);
 
@@ -23,6 +24,9 @@ const Login = () => {
     })
 
     const [loggedInUSer, setLoggedInUser] = useContext(UserContext);
+    const history = useHistory();
+    const location = useLocation();
+    let { from } = location.state || { from: { pathname: "/" } };
 
     //Google Auth
     const provider = new firebase.auth.GoogleAuthProvider();
@@ -40,6 +44,7 @@ const Login = () => {
             }
             setLoggedInUser(newUser);
             setUser(newUser);
+            history.replace(from);
           })
           .catch(error =>  {
             const newUserInfo = {
@@ -62,6 +67,7 @@ const Login = () => {
                 error : ""
             }
             setLoggedInUser(newUser);
+            history.replace(from);
             setUser(newUser);
           })
           .catch(function(error) {
@@ -118,6 +124,8 @@ if(!newUser && user.email && user.password){
         newUserInfo.error = '';
         newUserInfo.success = true;
         setUser(newUserInfo);
+        setLoggedInUser(newUserInfo);
+        history.replace(from);
     })
     .catch(error => {
         const newUserInfo = {...user};

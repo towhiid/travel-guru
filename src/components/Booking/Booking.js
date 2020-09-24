@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import DatePicker from 'react-datepicker';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Area from '../FakeData/Area';
 import calendar from '../Images/Icon/calender_icon.png';
 
@@ -24,7 +24,7 @@ const Booking = () => {
                            <label htmlFor="Origin">Origin</label>
                            <br/>
                         <input type="text" required className = "w-100" value = "Dhaka"/>
-                        <label htmlFor="Origin">Origin</label>
+                        <label htmlFor="Destination">Destination</label>
                            <br/>
                         <input type="text" required className = "w-100" value = {booking.name}/>
                        <div className = "d-flex justify-content-between">
@@ -57,7 +57,9 @@ const Booking = () => {
                         </div>
                     </div>
                     <br/>
+                    <Link to = {`/hotels/${booking.name}`}>
                     <input type="submit" value="Start Booking" className ="btn btn-warning w-100"/>
+                    </Link>
                        </form>
                    </div>
                 </div>

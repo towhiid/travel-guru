@@ -2,15 +2,13 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import './Hotel.css';
 import Hotel from '../FakeData/Hotel';
-// import Area from '../FakeData/Area';
 import { Container, Row } from 'react-bootstrap';
 import HotelDetail from '../HotelDetail/HotelDetail';
-import googleMapReact from 'google-map-react';
+import GoogleMap from '../GoogleMap/GoogleMap';
 
 const Hotels = () => {
     const {name} = useParams();
     const data = [...Hotel];
-    // const area = [...Area];
 
     // const specificArea = area.find(item => item.name === name);
     const hotels = data.filter(item => item.place === name);
@@ -30,7 +28,8 @@ const Hotels = () => {
                 </div>
                 <div className = "col-md-6">
                     <h3>Google Map</h3>
-                <googleMapReact>{name}</googleMapReact>
+                <GoogleMap></GoogleMap>
+                
                 </div>
             </Row>
         </Container>
